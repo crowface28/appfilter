@@ -1,0 +1,204 @@
+<!doctype html>
+head
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+	<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.css">
+	<script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.js"></script>
+	<script async src="https://www.googletagmanager.com/gtag/js?id=UA-144773303-1"></script>
+	
+	script.
+		$(document).ready(function() {
+			$('#mainTable').DataTable({
+				"order": [[ 1, "desc" ]],
+				"searching":false,
+				"lengthMenu": [ [10, 50, 100, -1], [10, 50, 100, "All"] ]
+			});
+		});
+	
+	script.
+		window.dataLayer = window.dataLayer || [];
+		function gtag(){dataLayer.push(arguments);}
+		gtag('js', new Date());
+		gtag('config', 'UA-144773303-1');
+		
+	title Appfilter - Find your next favorite app
+body
+	div
+		div
+			h3 AppFilter.net 
+			p Bug or feature request?  
+				a(href="https://twitter.com/AppFilter_Net") @AppFilter_net
+			table
+				tr
+					td 
+						i Please don't make me put Google Ads on this page... please.
+					td
+						<form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top" style="display:inline-block">
+						<input type="hidden" name="cmd" value="_s-xclick" />
+						<input type="hidden" name="hosted_button_id" value="QS8X3FMBND96G" />
+						<input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_donate_SM.gif" border="0" name="submit" title="PayPal - The safer, easier way to pay online!" alt="Donate with PayPal button" />
+						<img alt="" border="0" src="https://www.paypal.com/en_US/i/scr/pixel.gif" width="1" height="1" />
+						</form>
+		div 
+			form(action="/", method="POST")
+				table 
+					tr
+						td Title:  
+							input(type="text", name="title")
+					tr
+						td Developer:  
+							input(type="text", name="dev")
+					tr
+						td IAP:  
+							select(name="iap")
+								option(value="") -- Select --
+								option(value="no") No
+								option(value="yes") Yes
+					tr
+						td Ads:  
+							select(name="ads")
+								option(value="") -- Select --
+								option(value="no") No
+								option(value="yes") Yes
+					tr
+						td Play Pass:  
+							select(name="gpp")
+								option(value="") -- Select --
+								option(value="no") No
+								option(value="yes") Yes
+					tr
+						td Paid:  
+							select(name="paid")
+								option(value="") -- Select --
+								option(value="no") No
+								option(value="yes") Yes
+					tr
+						td Category:  
+							select(name="cat")
+								option(value="") -- Select --
+								option(value="GAME_") All Games
+								option(value="GAME_ACTION") Game: Action
+								option(value="GAME_ADVENTURE") Game: Adventure
+								option(value="GAME_ARCADE") Game: Arcade
+								option(value="GAME_BOARD") Game: Board
+								option(value="GAME_CARD") Game: Card
+								option(value="GAME_CASINO") Game: Casino
+								option(value="GAME_CASUAL") Game: Casual
+								option(value="GAME_EDUCATIONAL") Game: Educational
+								option(value="GAME_MUSIC") Game: Music
+								option(value="GAME_PUZZLE") Game: Puzzle
+								option(value="GAME_RACING") Game: Racing
+								option(value="GAME_ROLE_PLAYING") Game: RPG
+								option(value="GAME_SIMULATION") Game: Simulation
+								option(value="GAME_SPORTS") Game: Sports
+								option(value="GAME_STRATEGY") Game: Strategy
+								option(value="GAME_TRIVIA") Game: Trivia
+								option(value="GAME_WORD") Game: Word
+								option(value="ART_AND_DESIGN") Art and Design
+								option(value="AUTO_AND_VEHICLES") Auto and Vehicles
+								option(value="BEAUTY") Beauty
+								option(value="BOOKS_AND_REFERENCE") Books / Reference
+								option(value="BUSINESS") Business
+								option(value="COMICS") Comics
+								option(value="COMMUNICATION") Communication
+								option(value="DATING") Dating
+								option(value="EDUCATION") Education
+								option(value="ENTERTAINMENT") Entertainment
+								option(value="EVENTS") Events
+								option(value="FAMILY") Family
+								option(value="FAMILY_ACTION") Family (Action)
+								option(value="FAMILY_BRAINGAMES") Family (Braingames)
+								option(value="FAMILY_CREATE") Family (Create)
+								option(value="FAMILY_EDUCATION") Family (Education)
+								option(value="FAMILY_MUSICVIDEO") Family (Music Video)
+								option(value="FAMILY_PRETEND") Family (Pretend)
+								option(value="FINANCE") Finance
+								option(value="FOOD_AND_DRINK") Food and Drink
+								option(value="HEALTH_AND_FITNESS") Health and Fitness
+								option(value="HOUSE_AND_HOME") House and Home
+								option(value="LIBRARIES_AND_DEMO") Libraries and Demo
+								option(value="LIFESTYLE") Lifestyle
+								option(value="MAPS_AND_NAVIGATION") Maps and Navigation
+								option(value="MEDICAL") Medical
+								option(value="MUSIC_AND_AUDIO") Music and Audio
+								option(value="NEWS_AND_MAGAZINES") News and Magazines
+								option(value="PARENTING") Parenting
+								option(value="PERSONALIZATION") Personalization
+								option(value="PHOTOGRAPHY") Photography
+								option(value="PRODUCTIVITY") Productivity
+								option(value="SHOPPING") Shopping
+								option(value="SOCIAL") Social
+								option(value="SPORTS") Sports
+								option(value="TOOLS") Tools
+								option(value="TRAVEL_AND_LOCAL") Travel and Local
+								option(value="VIDEO_PLAYERS") Video Players
+								option(value="WEATHER") Weather
+					tr
+						td Content Rating:  
+							select(name="contentRating")
+								option(value="") -- Select -- 
+								option(value="Everyone") Everyone
+								option(value="Everyone 10+") Everyone 10+
+								option(value="Teen") Teen
+								option(value="Mature 17+") Mature 17+
+								option(value="Adults only 18+") Adults only 18+
+								option(value="Unrated") Unrated
+					tr
+						td
+							input(class="btn btn-primary" type="submit" value="Submit")
+		
+		
+		div
+			table(id="mainTable", class="display")
+				thead(class="thead-light")
+					tr
+						th Title
+						th Ratings
+						th Stars
+						th IAP
+						th Ads
+						th Play Pass
+						th Price
+						th IAP Range
+						th Category
+						th Content Rating
+						th Last Update
+						th Developer
+				each value, key in data
+					if value.price !== 0
+						tr(class="table-warning")
+							td
+								img(src=value.thumbnailLink, style="width:50px;height:50px")
+								a(href=value.link, target="_blank") #{value.title}
+							td #{value.ratings}
+							td #{value.stars}
+							td #{value.iap}
+							td #{value.ads}
+							td #{value.playPass}
+							td #{value.price}
+							td #{value.iapRange}
+							td #{value.category}
+							td #{value.contentRating}
+							td #{value.appUpdated}
+							td #{value.dev}
+					else
+						tr
+							td
+								img(src=value.thumbnailLink, style="width:50px;height:50px")
+								a(href=value.link, target="_blank") #{value.title}
+							td #{value.ratings}
+							td #{value.stars}
+							td #{value.iap}
+							td #{value.ads}
+							td #{value.playPass}
+							td #{value.price}
+							td #{value.iapRange}
+							td #{value.category}
+							td #{value.contentRating}
+							td #{value.appUpdated}
+							td #{value.dev}
+							
