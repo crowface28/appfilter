@@ -9,7 +9,7 @@ head
 	<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.css">
 	<script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.js"></script>
 	<script async src="https://www.googletagmanager.com/gtag/js?id=UA-144773303-1"></script>
-	
+
 	script.
 		$(document).ready(function() {
 			$('#mainTable').DataTable({
@@ -18,66 +18,55 @@ head
 				"lengthMenu": [ [10, 50, 100, -1], [10, 50, 100, "All"] ]
 			});
 		});
-	
+
 	script.
 		window.dataLayer = window.dataLayer || [];
 		function gtag(){dataLayer.push(arguments);}
 		gtag('js', new Date());
 		gtag('config', 'UA-144773303-1');
-		
+
 	title Appfilter - Find your next favorite app
 body
 	div
 		div
-			h3 AppFilter.net 
-			p Bug or feature request?  
-				a(href="https://twitter.com/AppFilter_Net") @AppFilter_net
 			table
+				tr Bug or feature request?
+					a(href="https://twitter.com/AppFilter_Net") @AppFilter_net
 				tr
-					td 
-						i Please don't make me put Google Ads on this page... please.
 					td
-						<form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top" style="display:inline-block">
-						<input type="hidden" name="cmd" value="_s-xclick" />
-						<input type="hidden" name="hosted_button_id" value="QS8X3FMBND96G" />
-						<input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_donate_SM.gif" border="0" name="submit" title="PayPal - The safer, easier way to pay online!" alt="Donate with PayPal button" />
-						<img alt="" border="0" src="https://www.paypal.com/en_US/i/scr/pixel.gif" width="1" height="1" />
-						</form>
-		div 
+						<style>.bmc-button img{height: 34px !important;width: 35px !important;margin-bottom: 1px !important;box-shadow: none !important;border: none !important;vertical-align: middle !important;}.bmc-button{padding: 7px 10px 7px 10px !important;line-height: 35px !important;height:51px !important;min-width:217px !important;text-decoration: none !important;display:inline-flex !important;color:#ffffff !important;background-color:#79D6B5 !important;border-radius: 5px !important;border: 1px solid transparent !important;padding: 7px 10px 7px 10px !important;font-size: 20px !important;letter-spacing:-0.08px !important;box-shadow: 0px 1px 2px rgba(190, 190, 190, 0.5) !important;-webkit-box-shadow: 0px 1px 2px 2px rgba(190, 190, 190, 0.5) !important;margin: 0 auto !important;font-family:'Lato', sans-serif !important;-webkit-box-sizing: border-box !important;box-sizing: border-box !important;-o-transition: 0.3s all linear !important;-webkit-transition: 0.3s all linear !important;-moz-transition: 0.3s all linear !important;-ms-transition: 0.3s all linear !important;transition: 0.3s all linear !important;}.bmc-button:hover, .bmc-button:active, .bmc-button:focus {-webkit-box-shadow: 0px 1px 2px 2px rgba(190, 190, 190, 0.5) !important;text-decoration: none !important;box-shadow: 0px 1px 2px 2px rgba(190, 190, 190, 0.5) !important;opacity: 0.85 !important;color:#ffffff !important;}</style><link href="https://fonts.googleapis.com/css?family=Lato&subset=latin,latin-ext" rel="stylesheet"><a class="bmc-button" target="_blank" href="https://www.buymeacoffee.com/appfilter"><img src="https://cdn.buymeacoffee.com/buttons/bmc-new-btn-logo.svg" alt="Buy me a coffee"><span style="margin-left:15px;font-size:19px !important;">Buy me a coffee</span></a>
+		div
 			form(action="/", method="POST")
-				table 
+				table
 					tr
-						td Title:  
+						td Title:
 							input(type="text", name="title")
 					tr
-						td Developer:  
+						td Description:
+							input(type="text", name="description")
+					tr
+						td Developer:
 							input(type="text", name="dev")
 					tr
-						td IAP:  
+						td In-app Purchases:
 							select(name="iap")
 								option(value="") -- Select --
 								option(value="no") No
 								option(value="yes") Yes
 					tr
-						td Ads:  
+						td Ads:
 							select(name="ads")
 								option(value="") -- Select --
 								option(value="no") No
 								option(value="yes") Yes
 					tr
-						td Play Pass:  
-							select(name="gpp")
-								option(value="") -- Select --
-								option(value="no") No
-								option(value="yes") Yes
-					tr
-						td Paid:  
+						td Paid:
 							select(name="paid")
 								option(value="") -- Select --
 								option(value="no") No
 								option(value="yes") Yes
 					tr
-						td Category:  
+						td Category:
 							select(name="cat")
 								option(value="") -- Select --
 								option(value="GAME_") All Games
@@ -138,9 +127,9 @@ body
 								option(value="VIDEO_PLAYERS") Video Players
 								option(value="WEATHER") Weather
 					tr
-						td Content Rating:  
+						td Content Rating:
 							select(name="contentRating")
-								option(value="") -- Select -- 
+								option(value="") -- Select --
 								option(value="Everyone") Everyone
 								option(value="Everyone 10+") Everyone 10+
 								option(value="Teen") Teen
@@ -150,8 +139,8 @@ body
 					tr
 						td
 							input(class="btn btn-primary" type="submit" value="Submit")
-		
-		
+
+
 		div
 			table(id="mainTable", class="display")
 				thead(class="thead-light")
@@ -161,7 +150,6 @@ body
 						th Stars
 						th IAP
 						th Ads
-						th Play Pass
 						th Price
 						th IAP Range
 						th Category
@@ -173,12 +161,11 @@ body
 						tr(class="table-warning")
 							td
 								img(src=value.thumbnailLink, style="width:50px;height:50px")
-								a(href=value.link, target="_blank") #{value.title}
+								a(href=value.link, target="_blank" data-toggle="tooltip" title=value.description) #{value.title}
 							td #{value.ratings}
 							td #{value.stars}
 							td #{value.iap}
 							td #{value.ads}
-							td #{value.playPass}
 							td #{value.price}
 							td #{value.iapRange}
 							td #{value.category}
@@ -189,16 +176,14 @@ body
 						tr
 							td
 								img(src=value.thumbnailLink, style="width:50px;height:50px")
-								a(href=value.link, target="_blank") #{value.title}
+								a(href=value.link, target="_blank" data-toggle="tooltip" title=value.description) #{value.title}
 							td #{value.ratings}
 							td #{value.stars}
 							td #{value.iap}
 							td #{value.ads}
-							td #{value.playPass}
 							td #{value.price}
 							td #{value.iapRange}
 							td #{value.category}
 							td #{value.contentRating}
 							td #{value.appUpdated}
 							td #{value.dev}
-							
